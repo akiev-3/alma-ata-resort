@@ -12,10 +12,15 @@ requestAnimationFrame(() => document.querySelector('.hero').classList.add('loade
 const burger = document.getElementById('burger');
 const nav = document.getElementById('nav');
 burger.addEventListener('click', () => {
-  nav.classList.toggle('open');
+  const isOpen = nav.classList.toggle('open');
   header.classList.toggle('solid');
+  // Блокируем скролл страницы при открытом меню
+  document.body.style.overflow = isOpen ? 'hidden' : '';
 });
-nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  nav.classList.remove('open');
+  document.body.style.overflow = '';
+}));
 
 // Gallery filter
 document.querySelectorAll('.gf').forEach(btn => {
