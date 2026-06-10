@@ -85,9 +85,10 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .hero-content { position: relative; z-index: 2; padding: 0 10vw 100px; color: var(--white); width: 100%; }
 .hero-label {
   display: flex; align-items: center; gap: 10px;
-  font-size: .68rem; letter-spacing: .2em; text-transform: uppercase;
-  color: var(--goldl); margin-bottom: 16px; font-weight: 300;
+  font-size: .74rem; letter-spacing: .2em; text-transform: uppercase;
+  color: #F2E5C2; margin-bottom: 16px; font-weight: 500;
   white-space: nowrap; overflow: hidden;
+  text-shadow: 0 1px 10px rgba(0,0,0,.7);
 }
 .hl { display: block; width: 24px; height: 1px; background: var(--gold); flex-shrink: 0; }
 .hero-title {
@@ -234,9 +235,7 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
   padding: 40px 32px;
   border-right: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
-  transition: background .3s;
 }
-.am:hover { background: rgba(201,172,114,.04); }
 .am:nth-child(3n)        { border-right: none; }
 .am:nth-last-child(-n+3) { border-bottom: none; }
 
