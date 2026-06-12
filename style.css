@@ -76,8 +76,14 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .hero-bg {
   position: absolute; inset: 0; background-size: cover; background-position: center 30%;
   transform: scale(1.06); transition: transform 10s var(--ease);
+  overflow: hidden;
 }
 .hero.loaded .hero-bg { transform: scale(1); }
+.hero-video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center 30%;
+}
 .hero-overlay {
   position: absolute; inset: 0;
   background: linear-gradient(160deg, rgba(8,15,24,.12) 0%, rgba(8,15,24,.06) 30%, rgba(8,15,24,.82) 100%);
@@ -443,6 +449,7 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
   /* Фокус фото смещён к горам, а не край кадра */
   .hero-bg { background-position: 40% center; }
+  .hero-video { object-position: 40% center; }
 
   /* Секции */
   .section { padding: 56px 0; }

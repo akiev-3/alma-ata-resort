@@ -8,6 +8,15 @@ window.addEventListener('scroll', () => {
 const heroBg = document.querySelector('.hero-bg');
 requestAnimationFrame(() => document.querySelector('.hero').classList.add('loaded'));
 
+// Hero video: страховка автоплея (некоторые браузеры блокируют до первого касания)
+const heroVideo = document.querySelector('.hero-video');
+if (heroVideo) {
+  const tryPlay = () => heroVideo.play().catch(() => {});
+  tryPlay();
+  document.addEventListener('touchstart', tryPlay, { once: true });
+  document.addEventListener('click', tryPlay, { once: true });
+}
+
 // Burger menu
 const burger = document.getElementById('burger');
 const nav = document.getElementById('nav');
