@@ -8,11 +8,17 @@ window.addEventListener('scroll', () => {
 const heroBg = document.querySelector('.hero-bg');
 requestAnimationFrame(() => document.querySelector('.hero').classList.add('loaded'));
 
-// Hero video: 1080p на больших экранах, 720p на мобильных (экономия трафика)
+// Hero video: вертикальный ролик на мобильных, 1080p на больших экранах
 const heroVideo = document.querySelector('.hero-video');
 if (heroVideo) {
   const isSmall = window.matchMedia('(max-width: 820px)').matches;
-  heroVideo.src = isSmall ? 'video/hero_720.mp4' : 'video/hero_1080.mp4';
+  if (isSmall) {
+    heroVideo.src = 'video/hero_mobile.mp4';
+    heroVideo.poster = 'photos/hero_poster_mobile.jpg';
+    if (heroBg) heroBg.style.backgroundImage = "url('photos/hero_poster_mobile.jpg')";
+  } else {
+    heroVideo.src = 'video/hero_1080.mp4';
+  }
   // Показываем видео только когда оно реально играет (до этого виден постер)
   heroVideo.addEventListener('playing', () => heroVideo.classList.add('playing'), { once: true });
   // Страховка автоплея (некоторые браузеры блокируют до первого касания)

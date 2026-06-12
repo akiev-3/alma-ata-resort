@@ -450,9 +450,9 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
   .burger { display: flex; position: relative; z-index: 901; }
   .logo { position: relative; z-index: 901; }
 
-  /* Фокус фото смещён к горам, а не край кадра */
-  .hero-bg { background-position: 40% center; }
-  .hero-video { object-position: 40% center; }
+  /* Вертикальное видео и постер — по центру */
+  .hero-bg { background-position: center; }
+  .hero-video { object-position: center; }
 
   /* Секции */
   .section { padding: 56px 0; }
