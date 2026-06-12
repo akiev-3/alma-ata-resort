@@ -13,6 +13,8 @@ const heroVideo = document.querySelector('.hero-video');
 if (heroVideo) {
   const isSmall = window.matchMedia('(max-width: 820px)').matches;
   heroVideo.src = isSmall ? 'video/hero_720.mp4' : 'video/hero_1080.mp4';
+  // Показываем видео только когда оно реально играет (до этого виден постер)
+  heroVideo.addEventListener('playing', () => heroVideo.classList.add('playing'), { once: true });
   // Страховка автоплея (некоторые браузеры блокируют до первого касания)
   const tryPlay = () => heroVideo.play().catch(() => {});
   tryPlay();
