@@ -8,9 +8,12 @@ window.addEventListener('scroll', () => {
 const heroBg = document.querySelector('.hero-bg');
 requestAnimationFrame(() => document.querySelector('.hero').classList.add('loaded'));
 
-// Hero video: страховка автоплея (некоторые браузеры блокируют до первого касания)
+// Hero video: 1080p на больших экранах, 720p на мобильных (экономия трафика)
 const heroVideo = document.querySelector('.hero-video');
 if (heroVideo) {
+  const isSmall = window.matchMedia('(max-width: 820px)').matches;
+  heroVideo.src = isSmall ? 'video/hero_720.mp4' : 'video/hero_1080.mp4';
+  // Страховка автоплея (некоторые браузеры блокируют до первого касания)
   const tryPlay = () => heroVideo.play().catch(() => {});
   tryPlay();
   document.addEventListener('touchstart', tryPlay, { once: true });
