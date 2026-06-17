@@ -14,8 +14,6 @@ if (heroVideo) {
   const isSmall = window.matchMedia('(max-width: 820px)').matches;
   if (isSmall) {
     heroVideo.src = 'video/hero_mobile.mp4';
-    heroVideo.poster = 'photos/hero_poster_mobile.jpg?v=2';
-    if (heroBg) heroBg.style.backgroundImage = "url('photos/hero_poster_mobile.jpg?v=2')";
   } else {
     heroVideo.src = 'video/hero_1080.mp4';
   }
